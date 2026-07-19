@@ -1,0 +1,370 @@
+/* 动物要闻 · 白底，墨色，一个从封面借来的颜色 */
+:root {
+  --paper: #FFFFFF;
+  --ink: #191B1D;
+  --ink-2: rgba(25, 27, 29, .64);
+  --ink-3: rgba(25, 27, 29, .38);
+  --line: rgba(25, 27, 29, .12);
+  --accent: #2E7D46;          /* 取自当期封面 EXIT 绿，按期更换 */
+  --hei: -apple-system, BlinkMacSystemFont, "PingFang SC", "Noto Sans SC", "Source Han Sans SC", "Microsoft YaHei", sans-serif;
+  --song: "Songti SC", "STSong", "Noto Serif SC", "Source Han Serif SC", "SimSun", serif;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--hei);
+  font-size: 17px;
+  line-height: 1.8;
+  -webkit-font-smoothing: antialiased;
+}
+
+.page {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 0 32px 96px;
+}
+
+/* ———— 顶栏 ———— */
+.masthead {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  padding: 30px 0 26px;
+}
+.brand {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: .1em;
+}
+.nav {
+  display: flex;
+  align-items: baseline;
+  gap: 26px;
+  font-size: 13.5px;
+  color: var(--ink-2);
+}
+.nav a {
+  color: var(--ink-2);
+  text-decoration: none;
+  transition: color .2s;
+}
+.nav a:hover { color: var(--accent); }
+.nav .tagline {
+  color: var(--ink-3);
+  font-size: 13px;
+}
+
+/* ———— 期信息行 ———— */
+.issue-meta {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 13.5px;
+  letter-spacing: .05em;
+  color: var(--ink-2);
+  margin: 44px 0 26px;
+}
+.issue-meta .dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex: none;
+}
+.issue-meta .no { font-weight: 700; color: var(--ink); }
+.issue-meta .sep { color: var(--ink-3); }
+
+/* ———— 标题与副题 ———— */
+.headline {
+  font-size: clamp(36px, 5.2vw, 58px);
+  font-weight: 800;
+  line-height: 1.4;
+  letter-spacing: .01em;
+  margin-bottom: 26px;
+}
+.standfirst {
+  font-family: var(--song);
+  font-size: 19px;
+  line-height: 2;
+  color: var(--ink-2);
+  max-width: 660px;
+  margin-bottom: 48px;
+}
+
+/* ———— 封面 ———— */
+.cover { margin-bottom: 52px; }
+.cover img {
+  width: 100%;
+  display: block;
+  filter: saturate(.88);
+}
+.cover figcaption {
+  font-family: var(--song);
+  font-size: 12.5px;
+  color: var(--ink-3);
+  text-align: right;
+  padding-top: 10px;
+  letter-spacing: .04em;
+}
+
+/* ———— 正文 ———— */
+.body {
+  max-width: 660px;
+  margin: 0 auto 72px;
+}
+.body p { text-indent: 2em; margin-bottom: 1.1em; }
+.body p:last-child { margin-bottom: 0; }
+
+/* ———— 节拍 ———— */
+.beats { margin-bottom: 72px; }
+.beat {
+  max-width: 880px;
+  margin: 0 auto 60px;
+}
+.beat:last-child { margin-bottom: 0; }
+.beat-no {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--accent);
+  letter-spacing: .1em;
+  margin-bottom: 12px;
+}
+.beat img {
+  width: 100%;
+  display: block;
+  filter: saturate(.88);
+}
+.beat-cap {
+  font-family: var(--song);
+  font-size: 15.5px;
+  line-height: 1.9;
+  color: var(--ink-2);
+  padding-top: 12px;
+}
+
+/* ———— 编后 ———— */
+.postscript {
+  max-width: 660px;
+  margin: 0 auto 28px;
+  padding-top: 26px;
+  border-top: 1px solid var(--line);
+}
+.postscript p {
+  font-family: var(--song);
+  font-size: 16px;
+  line-height: 2;
+  color: var(--ink-2);
+}
+.postscript p::before {
+  content: "编后";
+  font-size: 12px;
+  color: var(--accent);
+  letter-spacing: .2em;
+  display: block;
+  margin-bottom: 6px;
+}
+
+/* ———— 来源行 ———— */
+.source-line {
+  max-width: 660px;
+  margin: 0 auto;
+  font-size: 12.5px;
+  color: var(--ink-3);
+  letter-spacing: .04em;
+}
+
+/* ———— 区块通用头 ———— */
+.section-head {
+  margin-bottom: 10px;
+  padding-top: 84px;
+  display: flex;
+  align-items: baseline;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.section-head h2 {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+.section-note {
+  font-size: 13px;
+  color: var(--ink-3);
+}
+.legend {
+  margin-left: auto;
+  font-size: 12.5px;
+  color: var(--ink-2);
+  display: flex;
+  gap: 18px;
+}
+.legend span { display: flex; align-items: center; gap: 6px; }
+
+/* ———— 往期列表 ———— */
+.past-list { list-style: none; border-top: 1px solid var(--line); margin-top: 22px; }
+.past-row {
+  display: grid;
+  grid-template-columns: 86px 1fr auto;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+}
+.past-thumb {
+  width: 86px;
+  height: 64px;
+  object-fit: cover;
+  display: block;
+  filter: saturate(.88);
+}
+.past-title {
+  font-size: 16.5px;
+  font-weight: 600;
+  line-height: 1.6;
+  transition: color .2s;
+}
+.past-row:hover .past-title { color: var(--accent); }
+.past-meta {
+  font-size: 12.5px;
+  color: var(--ink-3);
+  white-space: nowrap;
+  text-align: right;
+}
+.past-meta .no { display: block; margin-bottom: 2px; }
+
+/* ———— 选题池 ———— */
+.pool-list { list-style: none; border-top: 1px solid var(--line); margin-top: 22px; }
+.pool-row {
+  display: grid;
+  grid-template-columns: 18px 1fr auto;
+  align-items: center;
+  gap: 14px;
+  padding: 15px 0;
+  border-bottom: 1px solid var(--line);
+}
+.pool-title { font-size: 15.5px; }
+.pool-meta { font-size: 12px; color: var(--ink-3); white-space: nowrap; }
+
+/* 状态点 */
+.st {
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  flex: none;
+}
+.st-open { border: 1.5px solid var(--ink-3); }
+.st-half {
+  border: 1.5px solid var(--accent);
+  background: linear-gradient(90deg, var(--accent) 50%, transparent 50%);
+}
+.st-full { background: var(--accent); }
+
+/* ———— 页脚 ———— */
+.colophon { margin-top: 96px; }
+.colophon p {
+  font-size: 13px;
+  color: var(--ink-2);
+  letter-spacing: .05em;
+  text-align: center;
+  line-height: 2.2;
+}
+.colophon .creed { color: var(--ink-3); }
+.colophon .empty-day {
+  font-family: var(--song);
+  color: var(--ink-3);
+  font-size: 13px;
+}
+
+/* ———— 手机 ———— */
+@media (max-width: 720px) {
+  .page { padding: 0 20px 72px; }
+  .nav .tagline { display: none; }
+  .headline { margin-top: 8px; }
+  .standfirst { font-size: 17px; }
+  .past-row { grid-template-columns: 64px 1fr; }
+  .past-thumb { width: 64px; height: 48px; }
+  .past-meta { display: none; }
+  .legend { display: none; }
+}
+
+/* ———— 生成器版新增 ———— */
+.brand { text-decoration: none; color: inherit; display: block; }
+
+/* 往期行（整行可点） */
+.past-row { display: block; padding: 0; border-bottom: 1px solid var(--line); }
+.past-link {
+  display: grid;
+  grid-template-columns: 86px 1fr auto;
+  align-items: center;
+  gap: 20px;
+  padding: 16px 0;
+  text-decoration: none;
+  color: inherit;
+}
+.past-thumb-empty {
+  width: 86px; height: 64px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 12px; color: var(--ink-3);
+  border: 1px dashed var(--line);
+}
+
+/* 选手条目（PDSA 系列） */
+.entries { max-width: 660px; margin: 0 auto 64px; }
+.entry { padding: 20px 0; border-bottom: 1px solid var(--line); }
+.entry:last-child { border-bottom: none; }
+.entry-name { font-weight: 700; font-size: 17px; }
+.entry-stats { font-size: 13px; color: var(--ink-3); margin: 4px 0 8px; }
+.entry-quip { line-height: 1.9; color: var(--ink); }
+
+/* 内文图 */
+.photos { margin-bottom: 64px; }
+.inbody { max-width: 880px; margin: 0 auto 48px; }
+.inbody:last-child { margin-bottom: 0; }
+.inbody img { width: 100%; display: block; filter: saturate(.88); }
+.inbody figcaption {
+  font-family: var(--song);
+  font-size: 15px;
+  color: var(--ink-2);
+  padding-top: 12px;
+  line-height: 1.9;
+}
+
+/* 图墙（盘点类） */
+.photo-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 64px;
+}
+.photo-grid img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  display: block;
+  filter: saturate(.88);
+}
+
+/* 期页上下期导航 */
+.issue-nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 24px;
+  margin-top: 72px;
+  padding-top: 24px;
+  border-top: 1px solid var(--line);
+  font-size: 14px;
+}
+.issue-nav a { color: var(--ink-2); text-decoration: none; max-width: 45%; }
+.issue-nav a:hover { color: var(--accent); }
+.issue-nav a span { display: block; font-size: 12.5px; color: var(--ink-3); margin-top: 4px; }
+.issue-nav .next { text-align: right; margin-left: auto; }
+
+@media (max-width: 720px) {
+  .past-link { grid-template-columns: 64px 1fr; }
+  .past-thumb-empty { width: 64px; height: 48px; }
+  .photo-grid { grid-template-columns: repeat(2, 1fr); }
+}

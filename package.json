@@ -1,0 +1,9 @@
+{
+  "name": "dongwu-yaowen",
+  "version": "0.1.0",
+  "private": true,
+  "description": "动物要闻 · 每天一条动物新闻",
+  "scripts": {
+    "dev": "node server.js"
+  }
+}
