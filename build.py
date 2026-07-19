@@ -111,7 +111,9 @@ def entries_html(entries):
     return "\n      ".join(out)
 
 def issue_body(issue, prefix, accent):
-    a = [f'<article class="issue" style="--accent:{accent}">', meta_line(issue, accent)]
+    a = [f'<article class="issue" style="--accent:{accent}">',
+         f'<a class="back-top" href="{prefix}index.html">← 回到首页</a>',
+         meta_line(issue, accent)]
     a.append(f'<h1 class="headline">{issue["title"]}</h1>')
     if issue.get("standfirst"):
         a.append(f'<p class="standfirst">{esc(issue["standfirst"])}</p>')
@@ -148,11 +150,12 @@ def issue_nav(issue, prefix):
         parts.append(f'<a class="prev" href="{prev_i["slug"]}.html">← 第 {prev_i["no"]:03d} 期<span>{esc(t)}</span></a>')
     else:
         parts.append("<span></span>")
+    parts.append(f'<a class="home" href="{prefix}index.html">首页</a>')
     if next_i:
         t = re.sub(r"<br\s*/?>", " ", next_i["title"])
         parts.append(f'<a class="next" href="{next_i["slug"]}.html">第 {next_i["no"]:03d} 期 →<span>{esc(t)}</span></a>')
     else:
-        parts.append(f'<a class="next" href="../index.html">回到今日 →<span>最新一期</span></a>')
+        parts.append("<span></span>")
     parts.append("</nav>")
     return "\n      ".join(parts)
 
